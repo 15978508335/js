@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			lable{
+				vertical-align: top;
+			}
+			textarea{
+				width: 100px;
+				height: 40px;
+			}
+			button{
+				vertical-align: top;
+				border-radius: ;
+			}
+			div{
+				width: 400px;
+				height: 400px;
+				background: #ccc;
+				border: 2px solid #ccc;
+				overflow: auto;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<lable>aimi：</lable>
+		<textarea name="massage"></textarea>
+		<button>提交</button>
+		
+		<div></div>
+		<script type="text/javascript">
+			window.onload=function(){
+				var btn=document.getElementsByTagName("button")[0];
+				var div=document.getElementsByTagName("div")[0];
+				var lab=document.getElementsByTagName("lable")[0];
+				btn.onclick=function(){
+					var val=document.getElementsByTagName("textarea")[0].value;
+					div.innerHTML+=lab.innerHTML+val+"<br/>";
+					document.getElementsByTagName("textarea")[0].value="";
+				}
+			}
+
+			
+		</script>
+	</body>
+</html>

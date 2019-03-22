@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			a {
+				text-decoration: none;
+				color: black;
+			}
+			/*头部 开始*/
+			.header {
+				width: 100%;
+				height: 60px;
+				background: #CCCCCC;
+			}
+			.header .container {
+				width: 1000px;
+				height: 60px;
+				margin: 0 auto;
+				background: pink;
+			}
+			.header .container a {
+				float: left;
+				width: 200px;
+				height: 60px;
+				text-align: center;
+				line-height: 60px;
+			}
+			.header .container a.active {
+				background: #DFFFDF;
+				color: #FFC0CB;
+			}
+			.header .container a:hover {
+				background: #DFFFDF;
+				color: #FFC0CB;
+			}
+			/*身体开始*/
+			.body {
+				width: 100%;
+				height: 200px;
+				background: #FFDCD0;
+			}
+			.body .item {
+				width: 100%;
+				height: 200px;
+				display: none;
+			}
+		</style>
+		<script>
+			window.onload = function() {
+				//1.获取a标签
+				var links = document.getElementsByTagName("a");
+				var items = document.getElementsByClassName("item");
+				for(var i = 0; i < links.length; i++) {
+					(function(i) {
+						links[i].onclick = function() {
+							//排他思想 将所有tab的active类去掉
+							for(var j = 0; j < links.length; j++){
+								links[j].className=" ";
+								items[j].style.display="none";
+							}
+							//给点击的元素添加active类
+							links[i].className="active";
+							items[i].style.display="block";
+						}
+					})(i)
+
+				}
+
+			}
+		</script>
+
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="container">
+				<a href="#" class="active">首页</a>
+				<a href="#">首页</a>
+				<a href="#">首页</a>
+				<a href="#">首页</a>
+				<a href="#">首页</a>
+			</div>
+		</div>
+		<div class="body">
+			<div class="item" style="display: block;">哈哈哈哈哈</div>
+			<div class="item">嚯嚯嚯</div>
+			<div class="item">啦啦啦啦啦啦啦</div>
+			<div class="item">44444</div>
+			<div class="item">55555</div>
+		</div>
+
+		<script>
+		</script>
+	</body>
+
+</html>

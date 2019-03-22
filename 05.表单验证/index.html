@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				width: 450px;
+				height: 40px;
+				margin: 100px auto;
+			}
+			div label{
+				width: 50px;
+				float: left;
+				height: 30px;
+				line-height: 30px;
+			}
+			div input{
+				width: 200px;
+				height: 26px;
+				float: left;
+			}
+			div span{
+				width: 180px;
+				text-indent: 30px;
+				font-size: 14px;
+				height: 30px;
+				line-height: 30px;
+				background: #ccc;
+				float: left;
+			}
+			div span.wrong{
+				background: url(img/wrong.png) no-repeat #FFDCD0 8px 8px;
+			}
+			div span.right{
+				background: url(img/right.png) no-repeat #DFFFDF 8px 8px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div>
+			<label>高数：</label>
+			<input type="text" />
+			<span>请输入数字</span>
+		</div>
+		<script>
+			window.onload=function(){
+				var input=document.getElementsByTagName("input")[0];
+				var span=document.getElementsByTagName("span")[0];
+				//失去焦点事件绑定
+				input.onblur=function(){
+					//获取value
+					var val=input.value;
+					if(val==""){
+						//修改成不能为空
+						span.innerText="不能为空";
+						//修改成wrong样式
+						span.className="wrong";
+					}else if(val<0||val>150){
+						span.innerText="不在范围内";
+						span.className="wrong";
+					}else if(isNaN(Number(val))){
+						span.innerText="请输入数值";
+						span.className="wrong";
+					}else{
+						span.innerText="输入正确";
+						span.className="right";
+					}
+					
+				}
+
+				
+			}
+		</script>
+	</body>
+</html>
